@@ -1,22 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --font-display: Raleway, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Rajdhani, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", Rajdhani, ui-sans-serif, system-ui, sans-serif;
   --color-gold: #FFCC00;
   --color-fuchsia: #ED1067;
   --color-teal: #48C2C5;
   --color-white: #ffffff;
   --color-black: #222222;
+  --color-race-red: #e10600;
+  --color-carbon: #08090c;
+  --color-carbon-soft: #12141a;
+  --color-steel: #9da3b3;
 
   --color-house-white: #ffffff;
-  --color-house-black: #000000;
-  --color-house-text: #111111;
-  --color-house-text-muted: #666666;
-  --color-house-surface: #ffffff;
-  --color-house-surface-muted: #f5f5f5;
-  --color-house-border: #d7d7d7;
-  --color-house-accent: #2563eb;
+  --color-house-black: #050507;
+  --color-house-text: #f5f7fb;
+  --color-house-text-muted: #9da3b3;
+  --color-house-surface: #0d0f14;
+  --color-house-surface-muted: #171a22;
+  --color-house-border: rgba(255, 255, 255, 0.12);
+  --color-house-accent: #e10600;
   --color-house-success: #047857;
   --color-house-success-surface: #ecfdf5;
   --color-house-warning: #b45309;
@@ -122,6 +126,11 @@
   body {
     @apply antialiased;
     text-rendering: optimizeLegibility;
+    font-family: var(--font-sans);
+    color: var(--color-house-text);
+    background:
+      radial-gradient(circle at top, rgba(225, 6, 0, 0.25), transparent 30%),
+      linear-gradient(180deg, #08090c 0%, #0d0f14 45%, #050507 100%);
   }
   html,
   body {
@@ -166,7 +175,7 @@
   }
 
   p {
-    @apply text-base;
+    @apply text-lg leading-7 md:text-xl md:leading-8;
   }
 
   a {
@@ -238,7 +247,6 @@
 }
 
 @layer components {
-  /* THESE WILL BE REMOVED LATER, FOR DEV ONLY */
   .other-todo {
     position: absolute;
     top: 0;
@@ -252,39 +260,130 @@
   .other-section {
     position: relative;
     scroll-margin-top: var(--other-scroll-offset);
-    border: 2px dashed var(--color-house-error);
     background-color: var(--background);
     color: var(--foreground);
-    @apply px-3 py-6 md:py-12;
+    overflow: clip;
+    @apply px-4 py-12 md:px-8 md:py-20;
+  }
+  .other-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(225, 6, 0, 0.16), transparent 28%),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
+    pointer-events: none;
+  }
+  .other-section::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% 0 auto;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(225, 6, 0, 0.12), transparent 70%);
+    pointer-events: none;
   }
   .other-container {
-    border: 2px dashed var(--color-house-accent);
+    position: relative;
+    width: min(100%, 76rem);
+    z-index: var(--z-index-content);
   }
   .other-item {
     position: relative;
-    border: 2px dashed var(--color-house-success);
     background-color: var(--surface);
     color: var(--surface-foreground);
+    border: 1px solid color-mix(in srgb, var(--border) 100%, transparent);
+    border-radius: 1.5rem;
+    overflow: clip;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
   }
   .other-richtext {
-    border: 2px dashed var(--color-house-warning);
+    max-width: 48rem;
   }
   .other-cta-list {
-    border: 2px dashed var(--color-house-warning);
+    gap: 1rem;
+  }
+  .section-shell {
+    width: min(100% - 2rem, 76rem);
+    margin-inline: auto;
+  }
+  .other-section-shell {
+    position: relative;
+  }
+  .other-section-shell + .other-section-shell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(100% - 2rem, 76rem);
+    height: 2px;
+    transform: translateX(-50%);
+    background:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(225, 6, 0, 0.9) 18%,
+        rgba(255, 255, 255, 0.92) 50%,
+        rgba(225, 6, 0, 0.9) 82%,
+        transparent 100%
+      );
+    box-shadow: 0 0 24px rgba(225, 6, 0, 0.25);
+    z-index: var(--z-index-raised);
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] md:text-base;
+    color: color-mix(in srgb, var(--primary) 88%, white);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 3rem;
+    height: 1px;
+    background: currentColor;
   }
 
   /* MAIN NAVIGATION */
   .other-main-navigation {
-    @apply text-white hover:text-fuchsia;
+    @apply relative no-underline text-sm font-semibold uppercase tracking-[0.2em] text-white/78 transition-colors hover:text-white;
+  }
+  .other-main-navigation-item {
+    @apply relative flex items-center;
+  }
+  .other-main-navigation-item:not(:last-child)::after {
+    content: "/";
+    position: absolute;
+    right: -1.2rem;
+    top: 50%;
+    transform: translateY(-52%) skewX(-10deg);
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .other-main-navigation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.7rem;
+    height: 0.18rem;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+    background: linear-gradient(90deg, var(--color-race-red), var(--color-gold));
+  }
+  .other-main-navigation:hover::after,
+  .other-main-navigation.is-active::after,
+  .other-main-navigation.is-exact-active::after {
+    transform: scaleX(1);
   }
   .other-main-navigation.is-active {
-    @apply font-bold text-fuchsia underline;
-  }
-  .other-main-navigation.is-exact-active {
-    @apply text-teal;
+    @apply font-bold text-white;
   }
   .other-mobile-navigation {
     @apply text-white text-4xl uppercase no-underline;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
   }
   .other-mobile-navigation.is-active {
     @apply font-bold;
@@ -324,6 +423,21 @@
   .other-richtext :where(h1, h2, h3, h4, h5, h6, p) {
     @apply mb-4;
   }
+  .other-richtext :where(h1, h2) {
+    @apply uppercase tracking-[0.04em];
+  }
+  .other-richtext h1 {
+    @apply text-6xl leading-none md:text-8xl;
+  }
+  .other-richtext h2 {
+    @apply text-4xl leading-none md:text-6xl;
+  }
+  .other-richtext h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  .other-richtext p {
+    color: color-mix(in srgb, var(--foreground) 82%, white);
+  }
   .other-richtext > :last-child {
     @apply mb-0;
   }
@@ -343,7 +457,7 @@
 
   /* CARD HELPERS */
   .other-card-link {
-    @apply block text-inherit no-underline focus-visible:outline-offset-0 ;
+    @apply block h-full text-inherit no-underline focus-visible:outline-offset-0;
   }
 
   /* EMAIL LINK MENU */
@@ -416,9 +530,10 @@
     @apply flex items-center justify-center gap-3;
   }
   .other-pagination-button {
-    @apply rounded px-3 py-1 flex flex-col no-underline cursor-pointer;
+    @apply rounded-full px-4 py-2 flex flex-col no-underline cursor-pointer border;
     color: var(--primary-foreground);
     background-color: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 65%, white);
   }
   .other-pagination-button-icon {
     @apply px-1;
@@ -464,28 +579,58 @@
 
   /* LINK & BUTTON HELPERS */
   .other-cta {
-    @apply inline-flex items-center whitespace-nowrap cursor-pointer no-underline transition-all;
+    @apply inline-flex items-center whitespace-nowrap cursor-pointer no-underline transition-all duration-200;
+    position: relative;
   }
   .other-cta > .label {
     @apply no-underline
   }
   /* REGULAR LINKS */
   .other-cta-text {
-    @apply no-underline;
+    @apply rounded-full border border-transparent px-4 py-2 no-underline;
     color: var(--primary);
+  }
+  .other-cta-text:hover,
+  .other-cta-text:focus-visible {
+    color: var(--color-house-black);
+    background-color: var(--color-race-red);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 26px rgba(225, 6, 0, 0.25);
   }
   .other-cta-text > .label, .other-link {
     @apply underline;
   }
+  .other-cta-text:hover > .label,
+  .other-cta-text:focus-visible > .label {
+    @apply no-underline;
+  }
   /* BUTTONS */
   .other-cta-button {
-    @apply justify-center rounded-lg px-6 py-3 gap-2 no-underline border-1;
+    @apply justify-center rounded-full px-6 py-3 gap-2 no-underline border text-sm font-semibold uppercase tracking-[0.18em];
     color: var(--primary-foreground);
     background-color: var(--primary);
     border-color: var(--border);
+    box-shadow: 0 10px 30px rgba(225, 6, 0, 0.25);
+  }
+  .other-cta-button:hover,
+  .other-cta-button:focus-visible,
+  .other-cta-button-secondary:hover,
+  .other-cta-button-secondary:focus-visible {
+    transform: translateY(-1px);
+    color: var(--color-house-black);
+    background-color: var(--color-race-red);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 14px 32px rgba(225, 6, 0, 0.32);
+    filter: none;
   }
   .other-cta-button > .label {
     @apply font-display font-bold;
+  }
+  .other-cta-button-secondary {
+    background: transparent;
+    color: var(--foreground);
+    border-color: color-mix(in srgb, var(--foreground) 30%, transparent);
+    box-shadow: none;
   }
   /* IMAGE BUTTONS */
   .other-cta-image {
@@ -514,26 +659,39 @@
     );
   }
   .other-carousel-container {
-    @apply flex items-center w-full gap-12;
+    @apply flex w-full items-center gap-12;
   }
   .other-carousel-slide {
     flex: 0 0 100%;
     @apply min-w-0;
   }
-  .other-carousel-controls2 {
-    @apply absolute inset-0 z-base flex w-full items-center justify-between bg-house-surface;
+  .other-carousel-controls {
+    @apply pointer-events-none;
+  }
+  .other-carousel-controls--overlay {
+    @apply absolute inset-0 z-base flex w-full items-center justify-between;
+  }
+  .other-carousel-controls--below {
+    @apply mt-6 flex items-center justify-center gap-4;
   }
   .other-carousel-button {
-    @apply absolute bottom-0 top-0 z-base inline-flex h-full w-12 cursor-pointer items-center justify-center opacity-50 transition pointer-events-auto group-hover:opacity-100 disabled:pointer-events-none disabled:opacity-50
+    @apply pointer-events-auto inline-flex items-center justify-center transition disabled:pointer-events-none disabled:opacity-35;
   }
-  .other-carousel-button-prev {
+  .other-carousel-button--previous,
+  .other-carousel-button--next {
+    @apply absolute top-1/2 z-base h-12 w-12 -translate-y-1/2 rounded-full border border-white/15 bg-house-black/80 text-house-white opacity-0 backdrop-blur-sm group-hover:opacity-100;
+  }
+  .other-carousel-button--previous {
     @apply left-0;
   }
-  .other-carousel-button-next {
+  .other-carousel-button--next {
     @apply right-0;
   }
+  .other-carousel-button--inline {
+    @apply h-12 w-12 rounded-full border border-white/15 bg-white/5 text-house-white backdrop-blur-sm hover:bg-white/10;
+  }
   .other-carousel-indicators {
-    @apply flex flex-row items-center justify-center gap-2 mt-6;
+    @apply mt-6 flex flex-row items-center justify-center gap-2;
   }
   .other-carousel-indicator {
     @apply cursor-pointer transition-opacity;

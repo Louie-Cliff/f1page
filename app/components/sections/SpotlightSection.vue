@@ -15,10 +15,10 @@ const imageSizes = getContainerImageSizes('w-full md:w-1/2')
 
 <template>
   <section class="other-section" :class="`other-theme-${section.theme}`">
-    <div class="grid gap-10 md:grid-cols-[0.9fr_1fr] md:items-center">
+    <div class="other-container grid gap-10 rounded-[2rem] border border-white/10 bg-white/4 p-6 backdrop-blur-sm md:grid-cols-[0.9fr_1fr] md:items-center md:p-10">
       <div
         v-if="section.image"
-        class="aspect-[4/3] w-full overflow-hidden"
+        class="aspect-[4/3] w-full overflow-hidden rounded-[1.5rem]"
       >
         <OptimizedImage
           class="h-full w-full object-cover"
@@ -30,7 +30,7 @@ const imageSizes = getContainerImageSizes('w-full md:w-1/2')
         <p v-if="section.label" class="eyebrow">
           {{ section.label }}
         </p>
-        <h2 v-if="section.title" class="mt-4 text-3xl font-semibold text-house-text md:text-4xl">
+        <h2 v-if="section.title" class="mt-4 text-5xl leading-none text-house-text md:text-6xl">
           {{ section.title }}
         </h2>
         <RichTextRenderer

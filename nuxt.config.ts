@@ -54,7 +54,7 @@ const projectGoogleFontLinks = [
   },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap'
+    href: 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap'
   },
   {
     rel: 'stylesheet',

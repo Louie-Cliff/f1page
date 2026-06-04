@@ -5,7 +5,6 @@ import OptimizedImage from '~/components/ui/OptimizedImage.vue'
 import RichTextRenderer from '~/components/ui/RichTextRenderer.vue'
 import type { GallerySection } from '~/types/content'
 import { getContainerImageSizes } from '~/utils/image-sizes'
-import { getThemeClasses } from '~/utils/theme'
 
 defineProps<{
   section: GallerySection
@@ -16,16 +15,23 @@ const galleryImageSizes = getContainerImageSizes('w-full')
 
 <template>
   <section class="other-section" :class="`other-theme-${section.theme}`">
-    <div class="container flex flex-col items-center justify-center gap-6 other-container">
+    <div class="container flex flex-col items-center justify-center gap-8 other-container md:gap-10">
       <RichTextRenderer
         v-if="section.copy.nodes.length"
-        class="w-2/3 text-center"
+        class="max-w-3xl text-center"
         :rich-text="section.copy"
       />
-      <div v-if="section.cards.length">
+      <div
+        v-if="section.cards.length"
+        class="w-full rounded-[2rem] border border-white/10 bg-white/4 p-4 backdrop-blur-sm md:p-6"
+      >
         <BaseCarousel
           :items="section.cards"
           aria-label="Gallery"
+          autoplay
+          :autoplay-delay="4500"
+          autoplay-pause-on-hover
+          loop
           indicators="thumbnails"
           show-controls
           :slides-to-scroll="1"
@@ -33,10 +39,11 @@ const galleryImageSizes = getContainerImageSizes('w-full')
           <template #default="{ item }">
             <GalleryCard :card="item" :image-sizes="galleryImageSizes" />
           </template>
-          <template #indicator="{ item }">
+          <template #indicator="{ item, isSelected }">
             <div
               v-if="item.image"
-              class="aspect-video w-20 overflow-hidden"
+              class="aspect-video w-20 overflow-hidden rounded-xl border transition duration-200 md:w-24"
+              :class="isSelected ? 'border-white/70 opacity-100' : 'border-white/10 opacity-60'"
             >
               <OptimizedImage
                 class="h-full w-full object-cover"
@@ -47,13 +54,19 @@ const galleryImageSizes = getContainerImageSizes('w-full')
             </div>
             <span
               v-else
-              class="inline-flex aspect-video w-20 items-center justify-center bg-house-black px-2 text-xs font-bold text-house-white"
+              class="inline-flex aspect-video w-20 items-center justify-center rounded-xl border border-white/10 bg-house-black px-2 text-xs font-bold uppercase tracking-[0.18em] text-house-white md:w-24"
             >
               Video
             </span>
           </template>
         </BaseCarousel>
       </div>
+      <p
+        v-else
+        class="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-house-text-muted"
+      >
+        Add `instance_media` blocks in Storyblok to populate this carousel.
+      </p>
     </div>
 
   </section>

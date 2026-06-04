@@ -11,12 +11,15 @@ const hasLegal = computed(() => Boolean(props.settings.legal.nodes.length))
 </script>
 
 <template>
-  <footer class="border-t border-house-border bg-house-black text-house-white">
-    <div class="section-shell flex flex-col gap-4 py-8 text-sm md:flex-row md:items-center md:justify-between">
-      <p class="font-semibold">{{ siteName }}</p>
+  <footer class="border-t border-white/10 bg-[#040406] text-house-white">
+    <div class="section-shell flex flex-col gap-6 py-10 text-sm md:flex-row md:items-start md:justify-between">
+      <div class="flex flex-col gap-3">
+        <p class="eyebrow">F1 Clash Style Build</p>
+        <p class="font-display text-4xl uppercase tracking-[0.08em]">{{ siteName }}</p>
+      </div>
       <RichTextRenderer
         v-if="hasLegal"
-        class="max-w-2xl text-house-white/70 [&.rich-text]:text-sm [&.rich-text]:leading-6 [&.rich-text]:text-house-white/70 [&.rich-text_a]:text-house-white [&.rich-text_h1]:text-house-white [&.rich-text_h2]:text-house-white [&.rich-text_h3]:text-house-white [&.rich-text_h4]:text-house-white"
+        class="max-w-3xl text-house-white/70 [&_.other-richtext]:max-w-none [&_.other-richtext]:text-base [&_.other-richtext_a]:text-white [&_.other-richtext_h1]:text-white [&_.other-richtext_h2]:text-white [&_.other-richtext_h3]:text-white [&_.other-richtext_h4]:text-white"
         :rich-text="settings.legal"
       />
     </div>

@@ -12,16 +12,18 @@ defineProps<{
 
 <template>
   <section
-    class="aspect-[21/9] flex flex-col items-center justify-center relative other-section"
+    class="relative flex min-h-[78svh] flex-col items-center justify-center other-section"
     :class="`other-theme-${section.theme}`">
 
-    <div class="container relative z-content flex flex-col items-center justify-center gap-6 other-container">
+    <div class="absolute inset-0 z-content bg-gradient-to-r from-house-black via-house-black/60 to-transparent" />
+    <div class="absolute inset-x-0 bottom-0 z-content h-32 bg-gradient-to-t from-house-black to-transparent" />
+    <div class="container relative z-content flex flex-col items-start justify-center gap-8 other-container">
       <RichTextRenderer
         v-if="section.copy.nodes.length"
-        class="w-2/3 text-center"
+        class="max-w-3xl"
         :rich-text="section.copy"
       />
-      <CtaList v-if="section.links?.length" :links="section.links" />
+      <CtaList v-if="section.links?.length" :links="section.links" align="left" />
     </div>
     <OptimizedImage
       v-if="section.image"

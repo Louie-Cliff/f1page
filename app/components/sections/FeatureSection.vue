@@ -29,15 +29,15 @@ const imageSizes = getContainerImageSizes(imageWidthClasses)
 <template>
   <section class="other-section" :class="`other-theme-${section.theme}`">
     <div
-      class="container flex flex-col items-center justify-center gap-6 other-container"
+      class="container flex flex-col items-center gap-8 other-container md:gap-12"
       :class="layoutClass"
     >
-      <div>
+      <div class="w-full md:w-1/2">
         <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" />
       </div>
       <div
         v-if="section.image"
-        class="aspect-square overflow-hidden"
+        class="aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-house-surface-muted"
         :class="imageWidthClasses"
       >
         <OptimizedImage

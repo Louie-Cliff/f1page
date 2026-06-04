@@ -16,10 +16,10 @@ const cardImageSizes = computed(() => getGridImageSizes(props.section.columns))
 <template>
   <section class="other-section" :class="`other-theme-${section.theme}`">
     <div class="container flex flex-col items-center justify-center gap-6 other-container">
-      <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="w-2/3 text-center" />
+      <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="max-w-3xl text-center" />
       <div
         v-if="section.cards.length"
-        class="gap-6"
+        class="grid gap-6"
         :class="getGridColumnClasses(section.columns)"
       >
         <ContentCard

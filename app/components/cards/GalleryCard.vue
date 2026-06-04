@@ -9,10 +9,10 @@ defineProps<{
 </script>
 
 <template>
-  <article class="overflow-hidden other-item">
+  <article class="other-item overflow-hidden bg-black">
     <div
       v-if="card.image"
-      class="aspect-[4/3] w-full overflow-hidden"
+      class="aspect-[16/9] w-full overflow-hidden"
     >
       <OptimizedImage
         class="h-full w-full object-cover"
@@ -22,7 +22,7 @@ defineProps<{
     </div>
     <div
       v-else-if="card.video"
-      class="flex aspect-[4/3] items-center justify-center bg-house-black p-5 text-center text-sm font-semibold text-house-white"
+      class="flex aspect-[16/9] items-center justify-center bg-house-black p-6 text-center text-sm font-semibold uppercase tracking-[0.18em] text-house-white"
     >
       {{ card.video }}
     </div>

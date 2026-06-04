@@ -144,11 +144,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="flex flex-row items-center justify-between border-b p-6 other-theme-gold bg-gold">
-    <SmartLink href="/">
+  <header class="sticky top-0 z-sticky border-b border-white/10 bg-house-black/80 backdrop-blur-xl">
+    <div class="section-shell flex flex-row items-center justify-between gap-6 py-4">
+    <SmartLink href="/" class="no-underline">
       <OptimizedImage
         v-if="settings.logo"
-        class="max-h-12 w-auto"
+        class="max-h-10 w-auto md:max-h-12"
         :image="settings.logo"
         :alt="settings.logo.alt || siteName"
         sizes="200px"
@@ -159,11 +160,11 @@ onBeforeUnmount(() => {
 
     <nav
       aria-label="Main navigation"
-      class="flex flex-row"
+      class="flex flex-row items-center gap-4"
     >
       <!-- Desktop nav -->
-      <ul class="m-0 hidden list-none flex-row gap-6 p-0 md:flex">
-        <li v-for="item in navItems" :key="item.id">
+      <ul class="m-0 hidden list-none flex-row items-center gap-8 p-0 md:flex">
+        <li v-for="item in navItems" :key="item.id" class="other-main-navigation-item">
           <SmartLink
             class="other-main-navigation"
             :href="item.href"
@@ -187,7 +188,7 @@ onBeforeUnmount(() => {
         @click.self="closeMenu"
       >
         <ul
-          class="m-0 flex h-full list-none flex-col items-center justify-center bg-fuchsia p-6 gap-6 text-white transition-transform ease-out will-change-transform"
+          class="m-0 flex h-full list-none flex-col items-center justify-center bg-house-black p-6 gap-6 text-white transition-transform ease-out will-change-transform"
           :class="menuOpen ? 'translate-x-0 duration-1000' : 'translate-x-full duration-500'"
         >
           <li v-for="item in navItems" :key="item.id">
@@ -209,7 +210,7 @@ onBeforeUnmount(() => {
       <button
         ref="menuButton"
         type="button"
-        class="relative z-menu md:hidden"
+        class="relative z-menu inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white md:hidden"
         aria-controls="mobile-menu"
         :aria-expanded="menuOpen ? 'true' : 'false'"
         @click="toggleMenu"
@@ -223,6 +224,6 @@ onBeforeUnmount(() => {
       </button>
 
     </nav>
-
+    </div>
   </header>
 </template>

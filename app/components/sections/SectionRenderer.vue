@@ -14,6 +14,7 @@ const config = useRuntimeConfig()
   <div
     v-for="(section, sectionIndex) in sections"
     :key="section.id"
+    class="other-section-shell"
     v-bind="getStoryblokEditableAttrs(section, config.public.storyblokEditorMode)"
   >
     <component

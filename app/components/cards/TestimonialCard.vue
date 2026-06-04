@@ -8,9 +8,9 @@ defineProps<{
 </script>
 
 <template>
-  <figure class="flex flex-col items-start justify-start m-0 gap-3 other-item py-12">
+  <figure class="other-item m-0 flex min-h-80 flex-col justify-between gap-8 bg-white/4 p-8 md:p-12">
     
-    <blockquote class="text-3xl">
+    <blockquote class="font-display text-4xl uppercase leading-none md:text-5xl">
       {{ card.quote }}
     </blockquote>
     <figcaption class="flex flex-row items-center gap-3">
@@ -27,7 +27,7 @@ defineProps<{
       </div>
       <p class="flex flex-col items-start">
         <span class="font-semibold">{{ card.name }}</span>
-        <span v-if="card.role">{{ card.role }}</span>
+        <span v-if="card.role" class="text-sm uppercase tracking-[0.18em] text-house-text-muted">{{ card.role }}</span>
       </p>
     </figcaption>
   </figure>
