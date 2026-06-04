@@ -1,0 +1,9 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@storyblok/js@5.1.9'
+  - '@storyblok/nuxt@10.1.9'
+  - '@storyblok/richtext@4.3.4'
+  - '@storyblok/vue@10.1.9'
+  - storyblok-js-client@7.6.0

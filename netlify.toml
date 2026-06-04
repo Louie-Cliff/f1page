@@ -1,0 +1,28 @@
+[build]
+command = "pnpm build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "24"
+NITRO_PRESET = "netlify"
+STORYBLOK_REGION = "eu"
+
+[context.production.environment]
+STORYBLOK_VERSION = "published"
+STORYBLOK_EDITOR_MODE = "false"
+STORYBLOK_ENABLE_BRIDGE = "false"
+
+[context.deploy-preview.environment]
+STORYBLOK_VERSION = "draft"
+STORYBLOK_EDITOR_MODE = "false"
+STORYBLOK_ENABLE_BRIDGE = "false"
+
+[context.branch-deploy.environment]
+STORYBLOK_VERSION = "draft"
+STORYBLOK_EDITOR_MODE = "false"
+STORYBLOK_ENABLE_BRIDGE = "false"
+
+[context.storyblok.environment]
+STORYBLOK_VERSION = "draft"
+STORYBLOK_EDITOR_MODE = "true"
+STORYBLOK_ENABLE_BRIDGE = "false"
