@@ -41,6 +41,7 @@ defineProps<{
       background
       autoplay
       loop
+      :pause-when-hidden="false"
       :controls="false"
     />
   </section>

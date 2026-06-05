@@ -26,7 +26,7 @@ const imageSizes = getContainerImageSizes('w-full md:w-1/2')
           :sizes="imageSizes"
         />
       </div>
-      <div>
+      <div class="mx-auto max-w-2xl text-center">
         <p v-if="section.label" class="eyebrow">
           {{ section.label }}
         </p>

@@ -23,7 +23,7 @@ const galleryImageSizes = getContainerImageSizes('w-full')
       />
       <div
         v-if="section.cards.length"
-        class="w-full rounded-[2rem] border border-white/10 bg-white/4 p-4 backdrop-blur-sm md:p-6"
+        class="other-gallery-carousel w-full rounded-[2rem] border border-white/10 bg-white/4 p-4 backdrop-blur-sm md:p-6"
       >
         <BaseCarousel
           :items="section.cards"
@@ -35,6 +35,8 @@ const galleryImageSizes = getContainerImageSizes('w-full')
           indicators="thumbnails"
           show-controls
           :slides-to-scroll="1"
+          slide-size="var(--gallery-slide-size)"
+          slide-class="other-gallery-slide"
         >
           <template #default="{ item }">
             <GalleryCard :card="item" :image-sizes="galleryImageSizes" />

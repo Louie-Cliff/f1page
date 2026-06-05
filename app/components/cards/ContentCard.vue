@@ -14,10 +14,10 @@ defineProps<{
   <article class="other-item flex h-full flex-col items-start bg-white/4 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
     <div
       v-if="card.image"
-      class="aspect-[4/3] w-full overflow-hidden"
+      class="other-card-media h-[18rem] w-full overflow-hidden p-4 md:h-[22rem] md:p-6"
     >
       <OptimizedImage
-        class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+        class="h-full w-auto max-w-full object-contain object-center transition-transform duration-500 hover:scale-105"
         :image="card.image"
         :sizes="imageSizes || '(min-width: 768px) 33vw, 100vw'"
       />
