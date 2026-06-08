@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import RichTextRenderer from '~/components/ui/RichTextRenderer.vue'
 import type { AccordionSection } from '~/types/content'
-import { getThemeClasses, getThemeData } from '~/utils/theme'
+import { getThemeClasses } from '~/utils/theme'
 
 defineProps<{
   section: AccordionSection
 }>()
-
-const testy = 'fuchsia'
 </script>
 
 <template>
-  <section class="other-section" :class="`other-theme-${section.theme}`">
+  <section class="other-section" :class="getThemeClasses(section.theme)">
     <div class="container flex flex-col items-center justify-center gap-6 other-container">
       <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="w-2/3 text-center"  />
       <div v-if="section.cards.length" class="grid gap-6 w-full">

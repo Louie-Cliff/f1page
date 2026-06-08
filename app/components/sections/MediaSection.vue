@@ -13,7 +13,7 @@ const imageSizes = getContainerImageSizes('w-full')
 </script>
 
 <template>
-  <section class="other-section" :class="`other-theme-${section.theme}`">
+  <section class="other-section" :class="getThemeClasses(section.theme)">
     <div class="container other-container">
       <figure class="m-0">
         <div class="relative overflow-hidden">

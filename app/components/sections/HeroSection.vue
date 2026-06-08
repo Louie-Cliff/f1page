@@ -4,6 +4,7 @@ import OptimizedImage from '~/components/ui/OptimizedImage.vue'
 import CtaList from '~/components/ui/CtaList.vue'
 import RichTextRenderer from '~/components/ui/RichTextRenderer.vue'
 import type { HeroSection } from '~/types/content'
+import { getThemeClasses } from '~/utils/theme'
 
 defineProps<{
   section: HeroSection
@@ -13,7 +14,7 @@ defineProps<{
 <template>
   <section
     class="relative flex min-h-[78svh] flex-col items-center justify-center other-section"
-    :class="`other-theme-${section.theme}`">
+    :class="getThemeClasses(section.theme)">
 
     <div class="absolute inset-0 z-content bg-gradient-to-r from-house-black via-house-black/60 to-transparent" />
     <div class="absolute inset-x-0 bottom-0 z-content h-32 bg-gradient-to-t from-house-black to-transparent" />

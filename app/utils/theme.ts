@@ -88,6 +88,36 @@ const projectThemes: Record<string, ThemeClassInput> = {
     panel: 'bg-teal',
     styles: 'bg-teal text-white',
     stringy: 'other-theme-teal'
+  },
+  'race-red': {
+    background: 'bg-race-red',
+    color: 'text-white',
+    border: 'border-white/20',
+    alt: 'text-gold',
+    muted: 'text-race-red',
+    panel: 'bg-carbon-soft',
+    styles: 'bg-race-red text-white',
+    stringy: 'other-theme-race-red'
+  },
+  'racing-red': {
+    background: 'bg-race-red',
+    color: 'text-white',
+    border: 'border-white/20',
+    alt: 'text-gold',
+    muted: 'text-race-red',
+    panel: 'bg-carbon-soft',
+    styles: 'bg-race-red text-white',
+    stringy: 'other-theme-race-red'
+  },
+  red: {
+    background: 'bg-race-red',
+    color: 'text-white',
+    border: 'border-white/20',
+    alt: 'text-gold',
+    muted: 'text-race-red',
+    panel: 'bg-carbon-soft',
+    styles: 'bg-race-red text-white',
+    stringy: 'other-theme-race-red'
   }
 }
 
@@ -99,7 +129,7 @@ export const getThemeData = (theme?: string): ThemeClassData => {
     ...(mappedTheme || {})
   }
   const baseClasses = ['section-theme']
-  const themeClass = slug ? [`other-theme-${slug}`] : []
+  const themeClass = themeData.stringy ? [themeData.stringy] : slug ? [`other-theme-${slug}`] : []
 
   return {
     name: theme || '',

@@ -14,7 +14,7 @@ const cardImageSizes = getContainerImageSizes('w-1/4')
 </script>
 
 <template>
-  <section class="other-section" :class="`other-theme-${section.theme}`">
+  <section class="other-section" :class="getThemeClasses(section.theme)">
     <div class="container flex flex-col items-center justify-center gap-6 other-container">
       <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="w-2/3 text-center" />
       <BaseCarousel

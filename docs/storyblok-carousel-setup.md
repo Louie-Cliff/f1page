@@ -25,7 +25,7 @@ Set it up with these fields:
 
 3. `theme`
    Type: `Single-Option`
-   Suggested values: `black`, `white`, `gold`, `fuchsia`, `teal`
+   Suggested values: `black`, `white`, `gold`, `fuchsia`, `teal`, `race-red`
 
 If your homepage body field already allows `gallery_section`, you can add it straight away. If not, add `gallery_section` to the allowed blok types for the page body field.
 

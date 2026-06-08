@@ -14,8 +14,8 @@ const imageSizes = getContainerImageSizes('w-full md:w-1/2')
 </script>
 
 <template>
-  <section class="other-section" :class="`other-theme-${section.theme}`">
-    <div class="other-container grid gap-10 rounded-[2rem] border border-white/10 bg-white/4 p-6 backdrop-blur-sm md:grid-cols-[0.9fr_1fr] md:items-center md:p-10">
+  <section class="other-section" :class="getThemeClasses(section.theme)">
+    <div class="other-container grid gap-10 rounded-[2rem] border border-white/10 bg-white/6 p-8 backdrop-blur-sm md:grid-cols-[0.9fr_1fr] md:items-center md:p-12">
       <div
         v-if="section.image"
         class="aspect-[4/3] w-full overflow-hidden rounded-[1.5rem]"

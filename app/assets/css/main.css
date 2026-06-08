@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: Rajdhani, ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bebas Neue", Rajdhani, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Oswald, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", Oswald, ui-sans-serif, system-ui, sans-serif;
   --color-gold: #FFCC00;
   --color-fuchsia: #ED1067;
   --color-teal: #48C2C5;
@@ -116,6 +116,17 @@
     --muted: #444444;
     --muted-foreground: #cccccc;
     --border: #555555;
+  }
+  .other-theme-race-red {
+    --background: var(--color-race-red);
+    --foreground: var(--color-white);
+    --primary: var(--color-white);
+    --primary-foreground: var(--color-race-red);
+    --surface: rgba(0, 0, 0, 0.18);
+    --surface-foreground: var(--color-white);
+    --muted: rgba(255, 255, 255, 0.18);
+    --muted-foreground: rgba(255, 255, 255, 0.76);
+    --border: rgba(255, 255, 255, 0.24);
   }
 
   html {
@@ -381,7 +392,7 @@
     @apply font-bold text-white;
   }
   .other-mobile-navigation {
-    @apply text-white text-4xl uppercase no-underline;
+    @apply text-white text-5xl uppercase no-underline;
     font-family: var(--font-display);
     letter-spacing: 0.08em;
   }
@@ -430,7 +441,7 @@
     @apply text-6xl leading-none md:text-8xl;
   }
   .other-richtext h2 {
-    @apply text-4xl leading-none md:text-6xl;
+    @apply text-5xl leading-none md:text-6xl;
   }
   .other-richtext h3 {
     @apply text-2xl md:text-3xl;
@@ -613,7 +624,7 @@
   }
   /* BUTTONS */
   .other-cta-button {
-    @apply justify-center rounded-full px-6 py-3 gap-2 no-underline border text-sm font-semibold uppercase tracking-[0.18em];
+    @apply justify-center rounded-full px-7 py-3 gap-2 no-underline border text-sm font-semibold uppercase tracking-[0.18em];
     color: var(--primary-foreground);
     background-color: var(--primary);
     border-color: var(--border);

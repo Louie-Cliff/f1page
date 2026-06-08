@@ -7,6 +7,7 @@ import type { NewsSection } from '~/types/content'
 import { resolveArticlePage } from '~/utils/content/resolve-articles'
 import { getGridColumnClasses } from '~/utils/grid-columns'
 import { getGridImageSizes } from '~/utils/image-sizes'
+import { getThemeClasses } from '~/utils/theme'
 
 const props = defineProps<{
   section: NewsSection
@@ -72,7 +73,7 @@ const articleImageSizes = getGridImageSizes()
   <section
     ref="sectionElement"
     class="other-section"
-    :class="`other-theme-${section.theme}`"
+    :class="getThemeClasses(section.theme)"
   >
     <div class="container flex flex-col items-center justify-center gap-6 other-container">
       <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="max-w-3xl text-center" />

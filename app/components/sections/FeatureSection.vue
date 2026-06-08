@@ -27,7 +27,7 @@ const imageSizes = getContainerImageSizes(imageWidthClasses)
 </script>
 
 <template>
-  <section class="other-section" :class="`other-theme-${section.theme}`">
+  <section class="other-section" :class="getThemeClasses(section.theme)">
     <div
       class="container flex flex-col items-center gap-8 other-container md:gap-12"
       :class="layoutClass"

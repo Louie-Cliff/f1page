@@ -163,7 +163,7 @@ onBeforeUnmount(() => {
       class="flex flex-row items-center gap-4"
     >
       <!-- Desktop nav -->
-      <ul class="m-0 hidden list-none flex-row items-center gap-8 p-0 md:flex">
+      <ul class="m-0 hidden list-none flex-row items-center gap-10 p-0 md:flex">
         <li v-for="item in navItems" :key="item.id" class="other-main-navigation-item">
           <SmartLink
             class="other-main-navigation"
