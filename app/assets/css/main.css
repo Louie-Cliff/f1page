@@ -377,7 +377,7 @@
     left: 0;
     right: 0;
     bottom: -0.7rem;
-    height: 0.18rem;
+    height: 0.24rem;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 180ms ease;
@@ -774,8 +774,167 @@
     @apply text-sm text-house-error
   }
 
+  .other-spotlight-section .other-spotlight-panel {
+    background:
+      linear-gradient(145deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.02)),
+      radial-gradient(circle at top left, rgb(255 204 0 / 0.12), transparent 34%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.08),
+      0 26px 80px rgb(0 0 0 / 0.22);
+  }
+  .other-spotlight-section .other-spotlight-media {
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow:
+      0 24px 54px rgb(0 0 0 / 0.22),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
+  }
+  .other-spotlight-section .other-spotlight-copy .other-richtext {
+    max-width: 38rem;
+  }
+  .other-spotlight-section .other-spotlight-copy .other-richtext p {
+    font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+    line-height: 1.7;
+  }
   .other-spotlight-section .other-cta-list {
-    @apply justify-center;
+    @apply justify-center md:justify-start;
+  }
+  .other-spotlight-section--race-red .other-spotlight-panel {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.02)),
+      linear-gradient(135deg, rgb(0 0 0 / 0.18), transparent 40%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 34px 90px rgb(120 0 0 / 0.24);
+  }
+  .other-spotlight-section--race-red .other-spotlight-media {
+    box-shadow:
+      0 24px 70px rgb(70 0 0 / 0.3),
+      inset 0 1px 0 rgb(255 255 255 / 0.12);
+  }
+  .other-spotlight-section--race-red .other-spotlight-copy {
+    position: relative;
+  }
+  .other-spotlight-section--race-red .other-spotlight-copy::before {
+    content: "LIVE";
+    position: absolute;
+    top: -1.15rem;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 0.16);
+    color: rgb(255 255 255 / 0.86);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  .other-spotlight-section--race-red .other-spotlight-eyebrow {
+    color: rgb(255 255 255 / 0.82);
+  }
+  .other-spotlight-section--race-red .other-spotlight-copy h2 {
+    text-shadow: 0 10px 28px rgb(0 0 0 / 0.18);
+  }
+  @media (max-width: 767px) {
+    .other-spotlight-section--race-red .other-spotlight-copy::before {
+      right: 50%;
+      transform: translateX(50%);
+      top: -1.5rem;
+    }
+  }
+
+  .other-cards-section--race-red .other-cards-section-copy {
+    position: relative;
+    max-width: 54rem;
+  }
+  .other-cards-section--race-red .other-cards-section-copy::before {
+    content: "LIVE";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 0.16);
+    color: rgb(255 255 255 / 0.86);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  .other-cards-section--race-red .other-cards-section-copy .other-richtext {
+    max-width: none;
+  }
+  .other-cards-section--race-red .other-cards-section-copy .other-richtext h2 {
+    font-size: clamp(3.75rem, 8vw, 7rem);
+    line-height: 0.92;
+    text-shadow: 0 10px 28px rgb(0 0 0 / 0.18);
+  }
+  .other-cards-section--race-red .other-cards-section-copy .other-richtext p {
+    max-width: 42rem;
+    margin-inline: auto;
+    font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+    line-height: 1.7;
+  }
+  .other-cards-section--race-red .other-cards-section-grid {
+    width: 100%;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: 2rem;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.02)),
+      linear-gradient(135deg, rgb(0 0 0 / 0.18), transparent 40%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 34px 90px rgb(120 0 0 / 0.24);
+  }
+  .other-cards-section--race-red .other-cards-section-grid .other-item {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02)),
+      rgb(0 0 0 / 0.14);
+    border-color: rgb(255 255 255 / 0.16);
+    box-shadow:
+      0 24px 54px rgb(70 0 0 / 0.22),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
+  }
+  .other-cards-section--race-red .other-cards-section-grid .other-card-media {
+    background:
+      radial-gradient(circle at 50% 35%, rgb(255 255 255 / 0.12), transparent 44%),
+      linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent);
+    padding: 0.75rem;
+    align-items: flex-start;
+    min-height: 20rem;
+  }
+  .other-cards-section--race-red .other-cards-section-grid .other-card-media img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: center top;
+    transform: scale(1.34);
+    transform-origin: center top;
+  }
+  .other-cards-section--race-red .other-cards-section-grid .other-card-media:hover img {
+    transform: scale(1.4);
+  }
+  @media (min-width: 768px) {
+    .other-cards-section--race-red .other-cards-section-grid {
+      padding: 1.5rem;
+    }
+    .other-cards-section--race-red .other-cards-section-grid .other-card-media {
+      padding: 1rem;
+      min-height: 24rem;
+    }
+    .other-cards-section--race-red .other-cards-section-grid .other-card-media img {
+      transform: scale(1.48);
+    }
+    .other-cards-section--race-red .other-cards-section-grid .other-card-media:hover img {
+      transform: scale(1.56);
+    }
   }
 
   .other-testimonials-section::before,

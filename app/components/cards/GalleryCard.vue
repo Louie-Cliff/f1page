@@ -12,7 +12,7 @@ defineProps<{
   <article class="other-item overflow-hidden bg-black">
     <div
       v-if="card.image"
-      class="aspect-[16/9] w-full overflow-hidden"
+      class="aspect-[16/9] w-full overflow-hidden rounded-[1.25rem]"
     >
       <OptimizedImage
         class="h-full w-full object-cover"

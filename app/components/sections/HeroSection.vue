@@ -21,7 +21,7 @@ defineProps<{
     <div class="container relative z-content flex flex-col items-start justify-center gap-8 other-container">
       <RichTextRenderer
         v-if="section.copy.nodes.length"
-        class="max-w-3xl"
+        class="max-w-2xl"
         :rich-text="section.copy"
       />
       <CtaList v-if="section.links?.length" :links="section.links" align="left" />

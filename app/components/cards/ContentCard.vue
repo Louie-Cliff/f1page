@@ -1,4 +1,4 @@
-<script setup lang="ts">
+28rme<script setup lang="ts">
 import CtaList from '~/components/ui/CtaList.vue'
 import OptimizedImage from '~/components/ui/OptimizedImage.vue'
 import RichTextRenderer from '~/components/ui/RichTextRenderer.vue'
@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="other-item flex h-full flex-col items-start bg-white/4 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
+  <article class="other-item flex h-full flex-col items-start bg-white/4 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1 min-h-[28rem]">
     <div
       v-if="card.image"
       class="other-card-media h-[18rem] w-full overflow-hidden p-4 md:h-[22rem] md:p-6"

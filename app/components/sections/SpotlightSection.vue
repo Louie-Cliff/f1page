@@ -4,21 +4,26 @@ import CtaList from '~/components/ui/CtaList.vue'
 import RichTextRenderer from '~/components/ui/RichTextRenderer.vue'
 import type { SpotlightSection } from '~/types/content'
 import { getContainerImageSizes } from '~/utils/image-sizes'
-import { getThemeClasses } from '~/utils/theme'
+import { getThemeClasses, getThemeData } from '~/utils/theme'
 
-defineProps<{
+const props = defineProps<{
   section: SpotlightSection
 }>()
 
 const imageSizes = getContainerImageSizes('w-full md:w-1/2')
+const themeData = computed(() => getThemeData(props.section.theme))
+const isRaceRedTheme = computed(() => themeData.value.stringy === 'other-theme-race-red')
 </script>
 
 <template>
-  <section class="other-section" :class="getThemeClasses(section.theme)">
-    <div class="other-container grid gap-10 rounded-[2rem] border border-white/10 bg-white/6 p-8 backdrop-blur-sm md:grid-cols-[0.9fr_1fr] md:items-center md:p-12">
+  <section
+    class="other-section other-spotlight-section"
+    :class="[getThemeClasses(section.theme), isRaceRedTheme ? 'other-spotlight-section--race-red' : '']"
+  >
+    <div class="other-container other-spotlight-panel grid gap-10 overflow-hidden rounded-[2rem] border border-white/10 p-6 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-12 md:p-12">
       <div
         v-if="section.image"
-        class="aspect-[4/3] w-full overflow-hidden rounded-[1.5rem]"
+        class="other-spotlight-media aspect-[5/4] w-full overflow-hidden rounded-[2rem] md:aspect-[3/4]"
       >
         <OptimizedImage
           class="h-full w-full object-cover"
@@ -26,19 +31,24 @@ const imageSizes = getContainerImageSizes('w-full md:w-1/2')
           :sizes="imageSizes"
         />
       </div>
-      <div class="mx-auto max-w-2xl text-center">
-        <p v-if="section.label" class="eyebrow">
+      <div class="other-spotlight-copy mx-auto max-w-lg text-center md:mx-0 md:max-w-2xl md:text-left">
+        <p v-if="section.label" class="eyebrow other-spotlight-eyebrow">
           {{ section.label }}
         </p>
-        <h2 v-if="section.title" class="mt-4 text-5xl leading-none text-house-text md:text-6xl">
+        <h2 v-if="section.title" class="mt-4 text-6xl leading-[0.92] text-house-text md:max-w-lg md:text-8xl">
           {{ section.title }}
         </h2>
         <RichTextRenderer
           v-if="section.copy.nodes.length"
-          class="mt-6"
+          class="mt-5 md:mt-7"
           :rich-text="section.copy"
         />
-        <CtaList v-if="section.links?.length" class="mt-8" :links="section.links" />
+        <CtaList
+          v-if="section.links?.length"
+          class="mt-6 md:mt-8"
+          :links="section.links"
+          align="left"
+        />
       </div>
     </div>
   </section>
