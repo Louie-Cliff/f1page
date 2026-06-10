@@ -14,9 +14,9 @@ defineProps<{
 <template>
   <section class="other-section other-testimonials-section" :class="getThemeClasses(section.theme)">
     <div class="container flex flex-col items-center justify-center gap-6 other-container">
-      <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="max-w-3xl text-center" />
+      <RichTextRenderer v-if="section.copy.nodes.length" :rich-text="section.copy" class="max-w-4xl text-center" />
 
-      <div class="w-full">
+      <div class="mt-4 w-full md:mt-6">
         <BaseCarousel
           :items="section.cards"
           aria-label="Testimonials"

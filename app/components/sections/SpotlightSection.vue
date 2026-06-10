@@ -31,7 +31,7 @@ const isRaceRedTheme = computed(() => themeData.value.stringy === 'other-theme-r
           :sizes="imageSizes"
         />
       </div>
-      <div class="other-spotlight-copy mx-auto max-w-lg text-center md:mx-0 md:max-w-2xl md:text-left">
+      <div class="other-spotlight-copy mx-auto max-w-lg text-center md:mx-0 md:max-w-2xl sm:text-left">
         <p v-if="section.label" class="eyebrow other-spotlight-eyebrow">
           {{ section.label }}
         </p>

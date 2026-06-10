@@ -8,12 +8,12 @@ defineProps<{
 </script>
 
 <template>
-  <figure class="other-item m-0 flex min-h-80 flex-col justify-between gap-8 bg-white/4 p-8 md:p-12">
+  <figure class="other-item m-0 flex min-h-80 flex-col justify-between gap-8 bg-white/4 p-8 md:p-14">
     
-    <blockquote class="font-display text-4xl uppercase leading-none md:text-5xl">
+    <blockquote class="font-display text-4xl uppercase leading-none md:text-6xl">
       {{ card.quote }}
     </blockquote>
-    <figcaption class="flex flex-row items-center gap-3">
+    <figcaption class="flex flex-row items-center gap-2">
       <div
         v-if="card.image"
         class="aspect-square w-12 overflow-hidden rounded-full"
