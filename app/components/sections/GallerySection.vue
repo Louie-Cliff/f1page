@@ -24,7 +24,7 @@ const galleryImageSizes = getContainerImageSizes('w-full')
       />
       <div
         v-if="section.cards.length"
-        class="other-gallery-carousel w-full rounded-[2rem] border border-white/10 bg-white/4 p-5 backdrop-blur-sm md:p-8"
+        class="other-gallery-carousel w-full rounded-[1.5rem] border border-white/10 bg-white/4 p-5 backdrop-blur-sm md:p-8"
       >
         <BaseCarousel
           :items="section.cards"
