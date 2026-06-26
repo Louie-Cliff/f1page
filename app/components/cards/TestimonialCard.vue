@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <figure class="other-item other-testimonial-card m-0 flex min-h-[24rem] flex-col justify-between gap-8 bg-white/4 p-8 md:p-14">
+  <figure class="other-item other-testimonial-card m-0 flex min-h-[24rem] flex-col justify-between gap-10 bg-white/4 p-10 md:p-14">
     <div class="other-testimonial-card-meta flex items-center justify-between gap-4">
       <p class="font-display text-sm uppercase tracking-[0.3em] text-house-text-muted">Fan telemetry</p>
       <span class="other-testimonial-rating" aria-hidden="true">★★★★★</span>

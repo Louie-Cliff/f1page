@@ -1090,6 +1090,174 @@
     border-top-color: rgb(255 255 255 / 0.14);
   }
 
+  .other-accordion-section .other-accordion-list {
+    max-width: 64rem;
+  }
+  .other-accordion-section .other-accordion-item {
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02)),
+      rgb(255 255 255 / 0.03);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.1),
+      0 20px 50px rgb(0 0 0 / 0.16);
+  }
+
+  .other-accordion-section .other-accordion-item:hover {
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 0.18);
+    box-shadow:inset 0 1px 0 rgb(255 255 255 / 0.12),
+    0 24px 60px rgb (0 0 0 / 0.2); 
+  }
+
+  .other-accordion-section .other-accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 1.25rem 1.1rem;
+  }
+  .other-accordion-section .other-accordion-title {
+    margin-bottom: 0;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    line-height: 1;
+  }
+  .other-accordion-section .other-accordion-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.05);
+    transition:
+      background 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+  .other-accordion-section .other-accordion-icon .bar {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 1rem;
+    height: 2px;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+  .other-accordion-section .other-accordion-icon .bar-vertical {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .other-accordion-section .other-accordion-item[open] .other-accordion-icon {
+    background: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.24);
+  }
+  .other-accordion-section .other-accordion-item[open] .other-accordion-icon .bar-vertical {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(0.2);
+  }
+  .other-accordion-section .other-accordion-copy {
+    padding-top: 0.25rem;
+  }
+  .other-accordion-section .other-accordion-copy .other-richtext {
+    max-width: none;
+  }
+  .other-accordion-section .other-accordion-copy .other-richtext p {
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    line-height: 1.75;
+  }
+  @media (min-width: 768px) {
+    .other-accordion-section .other-accordion-summary {
+      padding: 1.5rem 1.5rem 1.3rem;
+    }
+  }
+
+  .other-timeline-section .other-timeline-list {
+    max-width: 78rem;
+  }
+  .other-timeline-section .other-timeline-item {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    overflow: hidden;
+    padding: 1.25rem;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02)),
+      rgb(255 255 255 / 0.03);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.1),
+      0 22px 56px rgb(0 0 0 / 0.16);
+  }
+  .other-timeline-section .other-timeline-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .other-timeline-section .other-timeline-step-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.25rem;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.06);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  .other-timeline-section .other-timeline-step-line {
+    flex: 1;
+    height: 2px;
+    background:
+      linear-gradient(90deg, rgb(255 204 0 / 0.8), rgb(255 255 255 / 0.35), transparent);
+  }
+  .other-timeline-section .other-timeline-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 1.5rem;
+    background: rgb(255 255 255 / 0.04);
+  }
+  .other-timeline-section .other-timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .other-timeline-section .other-timeline-kicker {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--primary) 82%, white);
+  }
+  .other-timeline-section .other-timeline-title {
+    margin-bottom: 0;
+    font-size: clamp(1.45rem, 1.8vw, 2rem);
+    line-height: 0.95;
+  }
+  .other-timeline-section .other-timeline-copy .other-richtext {
+    max-width: none;
+  }
+  .other-timeline-section .other-timeline-copy .other-richtext p {
+    font-size: clamp(1rem, 1vw, 1.12rem);
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .other-timeline-section .other-timeline-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .other-timeline-section .other-timeline-item {
+      padding: 1.5rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .other-timeline-section .other-timeline-list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
   @keyframes other-speed-sheen {
     0%,
     100% {
